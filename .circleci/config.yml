@@ -14,7 +14,6 @@ jobs:
         environment:
           POSTGRES_USER: destination_planner
           POSTGRES_DB: destination_planner_test
-          POSTGRES_PASSWORD: ""
     executor: ruby/default
     steps:
       - checkout
