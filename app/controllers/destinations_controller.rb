@@ -1,3 +1,6 @@
+require 'faraday'
+require 'json'
+
 class DestinationsController < ApplicationController
   before_action :set_destination, only: [:show, :edit, :update, :destroy]
 
@@ -6,6 +9,11 @@ class DestinationsController < ApplicationController
   end
 
   def show
+    @weather = WeatherFacade.forecast(@destination.name)
+
+    keyword = @weather.summary
+
+    @gif = GifService.gif_by_weather(keyword)
   end
 
   def new
