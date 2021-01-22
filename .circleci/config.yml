@@ -2,25 +2,16 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2
 
-commands:
-  configure_bundler:
-    description: Configure bundler
-    steps:
-      - run:
-        name: Configure bundler
-        command: |
-          echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-          source $BASH_ENV
-          gem install bundler
-
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
+      - image: circleci/ruby:2.5.3-stretch-node
     executor: ruby/default
     steps:
       - checkout
-      - ruby/nvm install node
+      - run:
+            name: bundle
+            command: gem install bundler
       - run:
             name: bundle
             command: bundle install
