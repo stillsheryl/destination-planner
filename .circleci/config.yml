@@ -10,11 +10,11 @@ jobs:
             PGHOST: localhost
             PGUSER: destination_planner
             RAILS_ENV: test
-        - image: postgres:9.5
-          environment:
-            POSTGRES_USER: destination_planner
-            POSTGRES_DB: destination_planner_test
-            POSTGRES_PASSWORD: ""
+      - image: postgres:9.5
+        environment:
+          POSTGRES_USER: destination_planner
+          POSTGRES_DB: destination_planner_test
+          POSTGRES_PASSWORD: ""
     executor: ruby/default
     steps:
       - checkout
