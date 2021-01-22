@@ -9,6 +9,7 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
+      - ruby/nvm install node
       - run:
             name: bundle
             command: bundle install
