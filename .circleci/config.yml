@@ -10,8 +10,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: bundle
-          command: bundle-install
+      - ruby/bundle-install
       - run:
           name: Run tests
           command: bundle exec rspec
