@@ -11,9 +11,7 @@ class DestinationsController < ApplicationController
   def show
     @weather = WeatherFacade.forecast(@destination.name)
 
-    keyword = @weather.summary
-
-    @gif = GifService.gif_by_weather(keyword)
+    @gif = GifService.gif_by_weather(@weather.summary)
   end
 
   def new
