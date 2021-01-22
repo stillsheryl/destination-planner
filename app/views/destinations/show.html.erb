@@ -19,7 +19,15 @@
 
   <div class="row">
     <h4>Forecast for <%= @destination.name %>:</h4>
+  </div>
 
+  <div class="city">
+    <p class="date">Date: <%= Date.today.strftime("%B %d, %Y") %></p>
+    <p class="current">Current: <%= @weather.current %>F</p>
+    <p class="high">High: <%= @weather.high %>F</p>
+    <p class="low">Low: <%= @weather.low %>F</p>
+    <p class="summary">Summary: <%= @weather.summary %></p>
+    <img src="<%= @gif[:data].first[:images][:original][:url] %>" class="gif" alt="weather gif">
   </div>
 
   <div class="row">
